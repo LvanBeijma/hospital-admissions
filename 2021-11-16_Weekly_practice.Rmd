@@ -1,0 +1,55 @@
+---
+title: "2021-11-16_Homework"
+author: "LvanBeijma"
+date: "15/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r read_in_data}
+
+library(readr)
+library(tidyverse)
+pop_demo_data_dictionary <- read_csv("Data/pop_demo_data_dictionary.csv")
+
+
+population_demographics <- read_csv("Data/population_demographics.csv")
+View(population_demographics)
+
+```
+
+q: We want you to read in the data and answer the following questions:
+Are there any problems with the values of age and deprivation?
+
+a: Some age values at 150. NA values in deprivation.
+
+
+What is the minimum, maximum and median age for each deprivation level?
+
+```{r analysing data}
+
+minimum_age_per_deprivation <- population_demographics %>%
+  group_by(deprivation) %>%
+  summarise(minimum_age_per_deprivation = min(age))
+
+head (minimum_age_per_deprivation)
+
+maximum_age_per_deprivation <- population_demographics %>%
+  group_by(deprivation) %>%
+  summarise(minimum_age_per_deprivation = max(age))
+
+head (maximum_age_per_deprivation)
+
+
+median_age_per_deprivation <- population_demographics %>%
+  group_by(deprivation) %>%
+  summarise(median_age_per_deprivation = median(age))
+
+head (median_age_per_deprivation)
+
+
+```
+

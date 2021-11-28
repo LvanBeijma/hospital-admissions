@@ -1,4 +1,0 @@
-"Variable	Variable name	Measurement Unit	Allowed values	Description"
-"Patient ID number	id	Numeric	0001-9999	ID assigned to patient in sequential order"
-date_admit Patients admission date
-date_discharge Patients discharge date 
